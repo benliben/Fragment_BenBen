@@ -25,10 +25,10 @@ public class HomeFragment extends Fragment {
      * @return 新的Fragment
      */
     public static HomeFragment newInstance(int index) {
-        Bundle arge = new Bundle();
-        arge.putInt("KEY_INDEX", index);
+        Bundle args = new Bundle();
+        args.putInt("KEY_INDEX", index);
         HomeFragment fragment = new HomeFragment();
-        fragment.setArguments(arge);//将外部传入的参数保存在自己身上
+        fragment.setArguments(args);//将外部传入的参数保存在自己身上
         return fragment;
     }
 

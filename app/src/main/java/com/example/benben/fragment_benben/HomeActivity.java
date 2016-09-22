@@ -47,29 +47,28 @@ public class HomeActivity extends AppCompatActivity {
 
     private void initFragmentData() {
         listTab.add("线性图标");
-        fragmentList.add(HomeFragment.newInstance(1));
+        fragmentList.add(LineChartFragment.newInstance(1));
 
-                listTab.add("柱形图");
-        fragmentList.add(HomeFragment.newInstance(2));
+        listTab.add("柱形图");
+        fragmentList.add(BarChartFragment.newInstance(2));
 
-                listTab.add("水平柱形图");
-        fragmentList.add(HomeFragment.newInstance(3));
+        listTab.add("水平柱形图");
+        fragmentList.add(HorizontalChartFragment.newInstance(3));
 
-                listTab.add("混合图");
-        fragmentList.add(HomeFragment.newInstance(4));
+        listTab.add("混合图");
+        fragmentList.add(CombinedChartFragment.newInstance(4));
 
-                listTab.add("饼图");
-        fragmentList.add(HomeFragment.newInstance(5));
+        listTab.add("饼图");
+        fragmentList.add(PieChartFragment.newInstance(5));
 
-                listTab.add("散列图");
-        fragmentList.add(HomeFragment.newInstance(6));
+        listTab.add("散列图");
+        fragmentList.add(ScatterChartFragment.newInstance(6));
 
-                listTab.add("蜡烛图");
-        fragmentList.add(HomeFragment.newInstance(7));
+        listTab.add("蜡烛图");
+        fragmentList.add(CandleStickChartFragment.newInstance(7));
 
-                listTab.add("雷大海图");
-        fragmentList.add(HomeFragment.newInstance(8));
-
+        listTab.add("雷大海图");
+        fragmentList.add(RadarChartFragment.newInstance(8));
 
 
     }
