@@ -22,14 +22,11 @@ import java.util.Random;
  */
 public class BarChartFragment extends Fragment {
 
-    private Random random=new Random();//产生随机数
-    private BarChart chart;
-    private BarData data;
-    private BarDataSet dataSet;
+    private final Random random=new Random();//产生随机数
     private View rootView;
 
-    ArrayList<BarEntry> entries = new ArrayList<>();//显示条码
-    ArrayList<String> xVals = new ArrayList<>();//横坐标标签
+    private final ArrayList<BarEntry> entries = new ArrayList<>();//显示条码
+    private final ArrayList<String> xVals = new ArrayList<>();//横坐标标签
 
     public static BarChartFragment newInstance(int index) {
         BarChartFragment fragment = new BarChartFragment();
@@ -52,16 +49,16 @@ public class BarChartFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        chart = (BarChart) getActivity().findViewById(R.id.chart_bar);
+        BarChart chart = (BarChart) getActivity().findViewById(R.id.chart_bar);
         for (int i = 0; i < 12; i++) {
             float profit = random.nextFloat() * 1000;
             entries.add(new BarEntry(profit, i));
             xVals.add((i + 1) + "月");
         }
 
-        dataSet = new BarDataSet(entries, "公司年利润报表");
+        BarDataSet dataSet = new BarDataSet(entries, "公司年利润报表");
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        data = new BarData(xVals, dataSet);
+        BarData data = new BarData(xVals, dataSet);
         chart.setData(data);
         chart.animateY(3000);
         chart.setDescription("公司前半年财务报表（单位：万元）");

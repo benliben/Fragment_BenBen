@@ -22,12 +22,9 @@ import java.util.Random;
  */
 public class CandleStickChartFragment extends Fragment {
     private View rootView;
-    private CandleStickChart chart;
-    private CandleData data;
-    private ArrayList<String> xVals = new ArrayList<>();
-    private CandleDataSet dataSet;
-    private ArrayList<CandleEntry> yVals=new ArrayList<>();
-    private Random random=new Random();
+    private final ArrayList<String> xVals = new ArrayList<>();
+    private final ArrayList<CandleEntry> yVals=new ArrayList<>();
+    private final Random random=new Random();
 
     public static CandleStickChartFragment newInstance(int index) {
         CandleStickChartFragment fragment = new CandleStickChartFragment();
@@ -49,15 +46,15 @@ public class CandleStickChartFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        chart = (CandleStickChart) getActivity().findViewById(R.id.chart_candle_stick);
+        CandleStickChart chart = (CandleStickChart) getActivity().findViewById(R.id.chart_candle_stick);
         for (int i = 0; i < 12; i++) {
             float profit = random.nextFloat();
             xVals.add((i + 1) + "月");
             yVals.add(new CandleEntry(i, 2f, 1.5f, 1.0f, profit));
         }
-        dataSet = new CandleDataSet(yVals, "公司年利润");
+        CandleDataSet dataSet = new CandleDataSet(yVals, "公司年利润");
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        data = new CandleData(xVals, dataSet);
+        CandleData data = new CandleData(xVals, dataSet);
         chart.setData(data);
         chart.setDescription("公司年利润");
         chart.animateY(5000);
